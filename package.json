@@ -1,0 +1,39 @@
+{
+  "name": "simple-component-library",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "babel-preset-react-app": "^9.0.0",
+    "bootstrap": "3",
+    "create-react-class": "^15.6.3",
+    "prettier": "1.18.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "react-test-renderer": "^16.8.6"
+  },
+  "peerDependencies": {
+    "react": "^16.3.2",
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^16.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build-examples": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "buildWindows1": "SET NODE_ENV=production babel src -d lib",
+    "buildWindows": "SET NODE_ENV=production&&npx babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "publish:npm": "if exist dist rd /s /q dist && mkdir dist && SET NODE_ENV=production && SET BABEL_ENV=production&&npx babel src/lib --out-dir dist --copy-files"
+  }
+}
